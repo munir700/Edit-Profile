@@ -7,6 +7,7 @@ import javax.inject.Singleton;
 
 import assignment.cleancode.editprofile.AppApplication;
 import assignment.cleancode.editprofile.di.modules.ActivityBuilderModule;
+import assignment.cleancode.editprofile.di.modules.AppModule;
 import assignment.cleancode.editprofile.di.modules.SharedPreferencesModule;
 import assignment.cleancode.editprofile.di.modules.ViewModelModule;
 import dagger.BindsInstance;
@@ -25,7 +26,9 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ViewModelModule.class
 })
 
-public interface NetComponent  {
+public interface NetComponent {
+
+    void inject(AppApplication app);
 
     @Component.Builder
     interface Builder {
@@ -34,6 +37,4 @@ public interface NetComponent  {
 
         NetComponent build();
     }
-
-    void inject(AppApplication app);
 }

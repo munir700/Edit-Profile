@@ -3,7 +3,6 @@ package assignment.cleancode.editprofile.managers;
 import android.app.Application;
 import android.content.Context;
 
-
 import javax.inject.Inject;
 
 import assignment.cleancode.editprofile.preferences.PreferenceHandler;
@@ -25,13 +24,12 @@ public class AppManager {
         return appContext;
     }
 
-    public Application getApplication() {
-        return application;
-    }
-
-
     public void setContext(Context appContext) {
         this.appContext = appContext;
+    }
+
+    public Application getApplication() {
+        return application;
     }
 
     public String getResourceString(int resourceName) {

@@ -7,7 +7,7 @@ import assignment.cleancode.editprofile.base.BaseViewModel;
 public class EditProfileViewModel extends BaseViewModel {
 
     @Inject
-    public EditProfileViewModel(){
+    public EditProfileViewModel() {
 
     }
 }

@@ -2,7 +2,6 @@ package assignment.cleancode.editprofile.di.modules;
 
 import android.app.Application;
 
-
 import javax.inject.Singleton;
 
 import assignment.cleancode.editprofile.preferences.PreferenceHandler;

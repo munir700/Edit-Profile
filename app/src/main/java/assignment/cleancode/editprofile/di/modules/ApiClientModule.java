@@ -1,4 +1,4 @@
-package assignment.cleancode.editprofile.di;
+package assignment.cleancode.editprofile.di.modules;
 
 
 import dagger.Module;
@@ -9,7 +9,6 @@ import dagger.Module;
 
 @Module
 public class ApiClientModule {
-
 
 
 }

@@ -5,14 +5,13 @@ package assignment.cleancode.editprofile.di.modules;
  */
 
 
-
-import assignment.cleancode.editprofile.views.MainActivity;
+import assignment.cleancode.editprofile.views.EditProfileActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class ActivityBuilderModule {
     @ContributesAndroidInjector
-    abstract MainActivity bindMainActivity();
+    abstract EditProfileActivity bindMainActivity();
 
 }

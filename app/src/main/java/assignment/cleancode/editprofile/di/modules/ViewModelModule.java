@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import assignment.cleancode.editprofile.di.ViewModelFactory;
+import assignment.cleancode.editprofile.di.ViewModelKey;
 import assignment.cleancode.editprofile.viewmodels.EditProfileViewModel;
 import dagger.Binds;
 import dagger.Module;
@@ -25,7 +26,6 @@ public abstract class ViewModelModule {
 
     @Binds
     abstract ViewModelProvider.Factory bindsViewModelFactory(ViewModelFactory viewModelFactory);
-
 
 
 }

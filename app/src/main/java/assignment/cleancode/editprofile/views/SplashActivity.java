@@ -1,24 +1,21 @@
 package assignment.cleancode.editprofile.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import assignment.cleancode.editprofile.R;
 
 public class SplashActivity extends AppCompatActivity {
 
     public static final String TAG = SplashActivity.class.getSimpleName();
-
-    private Handler handler = null;
-
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
             try {
-                Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent mainIntent = new Intent(SplashActivity.this, EditProfileActivity.class);
                 startActivity(mainIntent);
                 finish();
             } catch (Exception e) {
@@ -26,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }
     };
-
+    private Handler handler = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

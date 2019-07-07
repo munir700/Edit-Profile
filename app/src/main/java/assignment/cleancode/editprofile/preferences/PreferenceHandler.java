@@ -2,8 +2,6 @@ package assignment.cleancode.editprofile.preferences;
 
 import android.content.Context;
 
-import java.util.HashSet;
-
 import javax.inject.Inject;
 
 /**

@@ -28,6 +28,7 @@ public class Logger {
             Log.i(tag, message);
         }
     }
+
     public static void v(final String tag, final String message) {
         if (isDebugable) {
             Log.v(tag, message);
@@ -35,9 +36,9 @@ public class Logger {
     }
 
     /*
-    * To log non fatal event on crashlytics
-    * */
-    public static void logCrashlyticsException(Throwable throwable){
+     * To log non fatal event on crashlytics
+     * */
+    public static void logCrashlyticsException(Throwable throwable) {
         Crashlytics.logException(throwable);
     }
 }

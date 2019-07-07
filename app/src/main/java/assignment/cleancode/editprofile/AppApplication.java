@@ -4,16 +4,15 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
-
 import com.crashlytics.android.Crashlytics;
 
 import javax.inject.Inject;
 
+import assignment.cleancode.editprofile.di.DaggerNetComponent;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import io.fabric.sdk.android.Fabric;
-import assignment.cleancode.editprofile.di.*;
 
 
 public class AppApplication extends Application implements HasActivityInjector {

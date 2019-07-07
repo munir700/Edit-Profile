@@ -2,8 +2,7 @@ package assignment.cleancode.editprofile.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SingleChoiceAttributes
-{
+public class SingleChoiceAttributes {
     private Figure[] figure;
 
     @SerializedName("marital_status")
@@ -15,60 +14,49 @@ public class SingleChoiceAttributes
 
     private Religion[] religion;
 
-    public Figure[] getFigure ()
-    {
+    public Figure[] getFigure() {
         return figure;
     }
 
-    public void setFigure (Figure[] figure)
-    {
+    public void setFigure(Figure[] figure) {
         this.figure = figure;
     }
 
-    public MaritalStatus[] getMaritalStatus()
-    {
+    public MaritalStatus[] getMaritalStatus() {
         return maritalStatus;
     }
 
-    public void setMaritalStatus(MaritalStatus[] maritalStatus)
-    {
+    public void setMaritalStatus(MaritalStatus[] maritalStatus) {
         this.maritalStatus = maritalStatus;
     }
 
-    public Gender[] getGender ()
-    {
+    public Gender[] getGender() {
         return gender;
     }
 
-    public void setGender (Gender[] gender)
-    {
+    public void setGender(Gender[] gender) {
         this.gender = gender;
     }
 
-    public Ethnicity[] getEthnicity ()
-    {
+    public Ethnicity[] getEthnicity() {
         return ethnicity;
     }
 
-    public void setEthnicity (Ethnicity[] ethnicity)
-    {
+    public void setEthnicity(Ethnicity[] ethnicity) {
         this.ethnicity = ethnicity;
     }
 
-    public Religion[] getReligion ()
-    {
+    public Religion[] getReligion() {
         return religion;
     }
 
-    public void setReligion (Religion[] religion)
-    {
+    public void setReligion(Religion[] religion) {
         this.religion = religion;
     }
 
     @Override
-    public String toString()
-    {
-        return "ClassPojo [figure = "+figure+", maritalStatus = "+ maritalStatus +", gender = "+gender+", ethnicity = "+ethnicity+", religion = "+religion+"]";
+    public String toString() {
+        return "ClassPojo [figure = " + figure + ", maritalStatus = " + maritalStatus + ", gender = " + gender + ", ethnicity = " + ethnicity + ", religion = " + religion + "]";
     }
 }
 	

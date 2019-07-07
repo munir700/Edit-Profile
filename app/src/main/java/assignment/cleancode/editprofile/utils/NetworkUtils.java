@@ -27,18 +27,6 @@ public class NetworkUtils {
         this.context = pContext;
     }
 
-
-    public boolean isConnectedToInternet(){
-
-        boolean connected = false;
-        if (context != null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            connected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
-        }
-        return connected;
-    }
     public static String getIpAddress(Context context) {
 
         WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
@@ -66,6 +54,19 @@ public class NetworkUtils {
         }
         return null;
     }
+
+    public boolean isConnectedToInternet() {
+
+        boolean connected = false;
+        if (context != null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            connected = networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();
+        }
+        return connected;
+    }
+
     public Context getContext() {
         return context;
     }

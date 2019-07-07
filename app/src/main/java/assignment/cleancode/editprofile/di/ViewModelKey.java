@@ -1,8 +1,7 @@
-package assignment.cleancode.editprofile.di.modules;
+package assignment.cleancode.editprofile.di;
 
 
-import android.app.Activity;
-
+import androidx.lifecycle.ViewModel;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -12,11 +11,15 @@ import java.lang.annotation.Target;
 
 import dagger.MapKey;
 
+/**
+ * Created by Munir Ahmad on 07/07/19.
+ */
+
+
 @Documented
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @MapKey
-public @interface ActivityKey {
-    Class<? extends Activity> value();
-
+public @interface ViewModelKey {
+    Class<? extends ViewModel> value();
 }
