@@ -1,7 +1,7 @@
-package android.assignment.interfaces;
+package assignment.cleancode.editprofile.interfaces;
 
-import android.assignment.enums.ViewModelEventsEnum;
 
+import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
 
 public interface ViewModelCallBackObserver<T> {
 

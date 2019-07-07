@@ -1,4 +1,4 @@
-package android.assignment.interfaces;
+package assignment.cleancode.editprofile.interfaces;
 
 public interface ActionDialogCallBack {
     void onDialogPositiveButton();

@@ -1,4 +1,4 @@
-package android.assignment.enums;
+package assignment.cleancode.editprofile.enums;
 
 
 public enum ViewModelEventsEnum {

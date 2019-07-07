@@ -4,25 +4,23 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
-import androidx.work.Worker;
 
 import com.crashlytics.android.Crashlytics;
 
 import javax.inject.Inject;
 
-import assignment.cleancode.editprofile.di.HasWorkerInjector;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import io.fabric.sdk.android.Fabric;
+import assignment.cleancode.editprofile.di.*;
 
 
-public class AppApplication extends Application implements HasActivityInjector, HasWorkerInjector {
+public class AppApplication extends Application implements HasActivityInjector {
 
     @Inject
     DispatchingAndroidInjector<Activity> activityDispatchingInjector;
-    @Inject
-    DispatchingAndroidInjector<Worker> workerDispatchingAndroidInjector;
+
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -44,9 +42,5 @@ public class AppApplication extends Application implements HasActivityInjector, 
         return activityDispatchingInjector;
     }
 
-    @Override
-    public AndroidInjector<Worker> workerInjector() {
-        return workerDispatchingAndroidInjector;
-    }
 
 }

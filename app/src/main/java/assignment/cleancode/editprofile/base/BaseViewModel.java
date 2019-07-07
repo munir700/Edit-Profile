@@ -1,14 +1,14 @@
-package android.assignment.base;
+package assignment.cleancode.editprofile.base;
 
-import android.assignment.enums.ViewModelEventsEnum;
-import android.assignment.interfaces.ViewModelCallBackObserver;
-import android.assignment.managers.AppManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
+import assignment.cleancode.editprofile.interfaces.ViewModelCallBackObserver;
+import assignment.cleancode.editprofile.managers.AppManager;
 import retrofit2.Call;
 
 /**
@@ -41,7 +41,6 @@ public class BaseViewModel extends ObservableViewModel {
     public AppManager getAppManager() {
         return appManager;
     }
-
 
     @Override
     protected void onCleared() {

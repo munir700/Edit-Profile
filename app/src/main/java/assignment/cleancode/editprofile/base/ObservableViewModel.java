@@ -1,8 +1,9 @@
-package android.assignment.base;
+package assignment.cleancode.editprofile.base;
 
-import android.arch.lifecycle.ViewModel;
-import android.databinding.Observable;
-import android.databinding.PropertyChangeRegistry;
+
+import androidx.databinding.Observable;
+import androidx.databinding.PropertyChangeRegistry;
+import androidx.lifecycle.ViewModel;
 
 /**
  * A ViewModel that is also an Observable,
@@ -13,7 +14,7 @@ public class ObservableViewModel extends ViewModel implements Observable {
 
     @Override
     public void addOnPropertyChangedCallback(
-            OnPropertyChangedCallback callback) {
+            Observable.OnPropertyChangedCallback callback) {
         callbacks.add(callback);
     }
 

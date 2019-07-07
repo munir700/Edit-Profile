@@ -5,6 +5,8 @@ import android.app.Application;
 import javax.inject.Singleton;
 
 import assignment.cleancode.editprofile.di.modules.ViewModelModule;
+import assignment.cleancode.editprofile.managers.AppManager;
+import assignment.cleancode.editprofile.preferences.PreferenceHandler;
 import assignment.cleancode.editprofile.utils.NetworkUtils;
 import dagger.Module;
 import dagger.Provides;
@@ -14,8 +16,16 @@ import dagger.Provides;
  */
 
 
-@Module(includes = ViewModelModule.class)
+@Module(includes = {ViewModelModule.class})
 public class AppModule {
+
+
+    @Provides
+    @Singleton
+    AppManager providesAppManager(Application application, PreferenceHandler preferenceHandler) {
+        AppManager appManager = new AppManager(application, preferenceHandler);
+        return appManager;
+    }
 
 
     @Provides

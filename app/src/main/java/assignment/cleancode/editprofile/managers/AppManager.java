@@ -1,19 +1,17 @@
-package android.assignment.managers;
+package assignment.cleancode.editprofile.managers;
 
 import android.app.Application;
-import android.assignment.AppApplication;
-import android.assignment.preferences.PreferenceHandler;
 import android.content.Context;
 
-import com.squareup.leakcanary.RefWatcher;
 
 import javax.inject.Inject;
+
+import assignment.cleancode.editprofile.preferences.PreferenceHandler;
 
 public class AppManager {
 
     private Context appContext;
     private Application application;
-    private RefWatcher refWatcher;
     private PreferenceHandler preferenceHandler;
 
     @Inject
@@ -31,13 +29,7 @@ public class AppManager {
         return application;
     }
 
-    public void mustDie(Object object) {
-        if (refWatcher == null) {
-            refWatcher = ((AppApplication) application).getRefWatcher();
-        }
-        if (refWatcher != null)
-            refWatcher.watch(object);
-    }
+
 
 
     public void setContext(Context appContext) {

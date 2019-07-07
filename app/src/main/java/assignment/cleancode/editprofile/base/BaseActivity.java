@@ -1,32 +1,32 @@
-package android.assignment.base;
+package assignment.cleancode.editprofile.base;
 
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
-import android.assignment.R;
-import android.assignment.enums.ViewModelEventsEnum;
-import android.assignment.interfaces.ViewModelCallBackObserver;
-import android.assignment.ui.ActionDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+
 import javax.inject.Inject;
 
+import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
+import assignment.cleancode.editprofile.interfaces.ViewModelCallBackObserver;
 import dagger.android.AndroidInjection;
+import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * @author Munir Ahmad.
  */
 
-public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewDataBinding> extends AppCompatActivity implements ViewModelCallBackObserver {
+public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewDataBinding> extends DaggerAppCompatActivity implements ViewModelCallBackObserver {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -49,13 +49,13 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel());
-        viewModel.addObserver(this);
+       // viewModel.addObserver(this);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, getLayoutRes());
         if (binding != null) {
             //TODO use layout in xml.It is recommended for approact.
             //otherwise the binding object is going to be null and non of the views are accessable.
-            progressBar = binding.getRoot().findViewById(R.id.progressBar);
+           // progressBar = binding.getRoot().findViewById(R.id.progressBar);
             if (progressBar != null) {
                 progressBar.setVisibility(View.GONE);
             }
@@ -75,7 +75,6 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        viewModel.appManager.mustDie(this);
     }
 
     protected void doStartActivity(Context context, Class cls) {
@@ -104,7 +103,6 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
      * on Server Request Failed.
      */
     public void onApiRequestFailed(String message) {
-        new ActionDialog(this, message, null, true).show();
     }
 
 

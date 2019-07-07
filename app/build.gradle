@@ -9,12 +9,20 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -23,6 +31,12 @@ def supportLibraryVersion = '28.0.0'
 def firebaseVersion = '16.0.6'
 def googeServices = '16.0.0'
 def workManagerVersion = '1.0.1'
+
+def daggerSupportVersion = '2.14.1'
+
+def roomVersion = "2.1.0"
+def lifecycleVersion = "2.0.0"
+def workVersion = "2.0.1"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -45,22 +59,40 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     // Dagger 2
+    implementation 'com.google.dagger:dagger:2.23.2'
     implementation 'com.google.dagger:dagger-android:2.23.2'
     implementation 'com.google.dagger:dagger-android-support:2.14.1'
+
+
+    // if you use the support libraries
+    annotationProcessor "com.google.dagger:dagger-android-processor:${daggerSupportVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerSupportVersion}"
 
     //SDP
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
-    implementation "android.arch.work:work-runtime:${workManagerVersion}"
 
     // ViewModel and LiveData
-    implementation "android.arch.lifecycle:extensions:1.1.1"
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
-//    testImplementation "android.arch.core:core-testing:1.1.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    //annotationProcessor "androidx.arch.lifecycle:compiler:${lifecycle_version}"
+    testImplementation "androidx.arch.core:core-testing:$lifecycleVersion"
 
     // Room
-    implementation "android.arch.persistence.room:runtime:1.1.1"
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+
+
+    // alternatively - Lifecycles only (no ViewModel or LiveData). Some UI
+    //     AndroidX libraries use this lightweight import for Lifecycle
+    //implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+
+
+    implementation "androidx.work:work-runtime:$workVersion"
+// optional - RxJava2 support
+    implementation "androidx.work:work-rxjava2:$workVersion"
+    // optional - Test helpers
+    androidTestImplementation "androidx.work:work-testing:$workVersion"
+
 
 }
