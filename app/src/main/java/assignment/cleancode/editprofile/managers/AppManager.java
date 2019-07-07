@@ -30,8 +30,6 @@ public class AppManager {
     }
 
 
-
-
     public void setContext(Context appContext) {
         this.appContext = appContext;
     }

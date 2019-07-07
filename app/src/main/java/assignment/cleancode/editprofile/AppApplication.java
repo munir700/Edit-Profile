@@ -34,7 +34,7 @@ public class AppApplication extends Application implements HasActivityInjector {
 
         Fabric.with(this, new Crashlytics());
 
-        //DaggerNetComponent.builder().application(this).build().inject(this);
+        DaggerNetComponent.builder().application(this).build().inject(this);
     }
 
     @Override

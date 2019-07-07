@@ -12,7 +12,6 @@ import assignment.cleancode.editprofile.di.modules.ViewModelModule;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
-import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
@@ -26,7 +25,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ViewModelModule.class
 })
 
-public interface NetComponent extends AndroidInjector<AppApplication> {
+public interface NetComponent  {
 
     @Component.Builder
     interface Builder {

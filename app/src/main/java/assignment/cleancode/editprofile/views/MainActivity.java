@@ -8,7 +8,7 @@ import assignment.cleancode.editprofile.R;
 import assignment.cleancode.editprofile.base.BaseActivity;
 import assignment.cleancode.editprofile.base.BaseViewModel;
 
-public class MainActivity<vm extends BaseViewModel, db extends ViewDataBinding> extends BaseActivity {
+public class MainActivity extends BaseActivity<BaseViewModel, ViewDataBinding> {
 
     @Override
     public Class getViewModel() {
@@ -23,5 +23,6 @@ public class MainActivity<vm extends BaseViewModel, db extends ViewDataBinding> 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 }

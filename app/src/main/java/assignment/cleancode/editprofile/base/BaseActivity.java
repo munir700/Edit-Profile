@@ -20,13 +20,12 @@ import javax.inject.Inject;
 import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
 import assignment.cleancode.editprofile.interfaces.ViewModelCallBackObserver;
 import dagger.android.AndroidInjection;
-import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * @author Munir Ahmad.
  */
 
-public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewDataBinding> extends DaggerAppCompatActivity implements ViewModelCallBackObserver {
+public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewDataBinding> extends AppCompatActivity implements ViewModelCallBackObserver {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
