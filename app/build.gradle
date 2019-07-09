@@ -1,4 +1,18 @@
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: "io.fabric"
 
 android {
     compileSdkVersion 28
@@ -10,9 +24,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        manifestPlaceholders = [packagename: "assignment.cleancode.editprofile", fabricApiKey: "53ee44f090b5463b12170bfb0b5cb102a0d5ebb8"]
+
     }
     buildTypes {
+        debug {
+            manifestPlaceholders = [crashlyticsEnabled: true]
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
+            manifestPlaceholders = [crashlyticsEnabled: true]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -87,12 +109,17 @@ dependencies {
     //     AndroidX libraries use this lightweight import for Lifecycle
     //implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
 
-
+/*
     implementation "androidx.work:work-runtime:$workVersion"
 // optional - RxJava2 support
     implementation "androidx.work:work-rxjava2:$workVersion"
     // optional - Test helpers
-    androidTestImplementation "androidx.work:work-testing:$workVersion"
+    androidTestImplementation "androidx.work:work-testing:$workVersion"*/
 
+    //implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+
+    implementation 'com.google.firebase:firebase-core:17.0.0'
 
 }
+
+apply plugin: 'com.google.gms.google-services'
