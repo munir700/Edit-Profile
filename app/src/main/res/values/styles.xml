@@ -14,12 +14,28 @@
         <item name="android:layout_marginRight">@dimen/textinput_layout_input_margin</item>
     </style>
 
-    <style name="lable_text_appearance" parent="TextAppearance.Design.Hint">
+    <style name="LableTextAppearance">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/_12ssp</item>
-        <item name="android:textColor">@color/white</item>
 
     </style>
 
+
+    <style name="RoundedButton" parent="Theme.AppCompat">
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@drawable/btn_bg</item>
+        <item name="android:paddingTop">@dimen/roundedbutton_top_padding</item>
+        <item name="android:paddingBottom">@dimen/roundedbutton_bottom_padding</item>
+        <item name="android:paddingRight">@dimen/roundedbutton_right_padding</item>
+        <item name="android:paddingLeft">@dimen/roundedbutton_left_padding</item>
+        <item name="android:layout_marginTop">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">start|center</item>
+    </style>
 
 </resources>

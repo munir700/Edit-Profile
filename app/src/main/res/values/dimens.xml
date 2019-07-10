@@ -5,5 +5,13 @@
     <dimen name="profile_setting_name_top_margin">@dimen/_20sdp</dimen>
     <dimen name="profile_setting_text_input_layout_top_margin">@dimen/_14sdp</dimen>
     <dimen name="text_size_12">@dimen/_12ssp</dimen>
-    <dimen name="profile_setting_edit_text_top_padding">@dimen/_5sdp</dimen>
+    <dimen name="profile_setting_edit_text_top_padding">@dimen/_10sdp</dimen>
+    <dimen name="text_size_large">@dimen/_13ssp</dimen>
+
+
+    <!--Style Specific Attribution-->
+    <dimen name="roundedbutton_top_padding">@dimen/_10sdp</dimen>
+    <dimen name="roundedbutton_bottom_padding">@dimen/_10sdp</dimen>
+    <dimen name="roundedbutton_left_padding">@dimen/_26sdp</dimen>
+    <dimen name="roundedbutton_right_padding">@dimen/_26sdp</dimen>
 </resources>

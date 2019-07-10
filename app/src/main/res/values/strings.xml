@@ -19,4 +19,7 @@
     <string name="STR_PHONE_HINT_REGISTER">Phone</string>
     <string name="STR_PASS_HINT">Password</string>
     <string name="STR_USER_LOGIN">User Login Options</string>
+
+    <string name="STR_SIGNIN">Sign In </string>
+    <string name="STR_OR">OR</string>
 </resources>
