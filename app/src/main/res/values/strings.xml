@@ -22,4 +22,5 @@
 
     <string name="STR_SIGNIN">Sign In </string>
     <string name="STR_OR">OR</string>
+    <string name="STR_LOGIN_GOOGLE">Login with Google</string>
 </resources>

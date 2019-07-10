@@ -7,4 +7,6 @@
     <color name="white">#ffffff</color>
     <color name="grey">#6d6e71</color>
     <color name="light_green">#E627B16D</color>
+    <color name="google_bg_color">#F0009688</color>
+
 </resources>

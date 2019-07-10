@@ -14,10 +14,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".3" />
+            app:layout_constraintGuide_percent=".25" />
 
 
         <TextView
+
             android:id="@+id/txt_lable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,20 +118,21 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_12"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/fb_login_btn"
+            app:layout_constraintBottom_toTopOf="@+id/google_login_btn"
             app:layout_constraintEnd_toEndOf="@+id/signin_btn"
             app:layout_constraintStart_toStartOf="@+id/signin_btn"
             app:layout_constraintTop_toBottomOf="@+id/signin_btn" />
+
         <LinearLayout
-            android:id="@+id/fb_login_btn"
+            android:id="@+id/google_login_btn"
             style="@style/RoundedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:background="@drawable/fb_btn_bg"
+            android:background="@drawable/google_btn_bg"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/guidelinebottom"
             app:layout_constraintEnd_toEndOf="@+id/signin_btn"
             app:layout_constraintStart_toStartOf="@+id/signin_btn"
             app:layout_constraintTop_toBottomOf="@+id/textView12">
@@ -138,18 +140,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:drawableStart='@{@drawable/ic_facebook_icon}'
-                android:text="@string/login_fb_str"
                 android:drawablePadding="@dimen/_5sdp"
+                android:text="@string/STR_LOGIN_GOOGLE"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_12"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelinebottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".3" />
+            app:layout_constraintGuide_percent=".85" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
