@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Edit Profile</string>
+
+
+    <string name="STR_NAME_REQUIRED">Name is required</string>
+    <string name="STR_VALID_EMAIL_REQUIRED">Valid email is required</string>
+    <string name="ERROR_INVALID_EMAIL_REGISTER">Email address invalid</string>
+    <string name="STR_PASSWORD_REQUIRED">Password is required</string>
+
+    <string name="ERROR_PASSWORD_LENGTH" translatable="false">Password should be at least 3 characters</string>
+    <string name="ERROR_PASSWORD_MISMATCH">Confirm password does not match</string>
+    <string name="STR_MOBILE_REQUIRED">Mobile number is required</string>
+    <string name="STR_ERROR_INVALID_PHONE">Phone number format invalid</string>
+
 </resources>
