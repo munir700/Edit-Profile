@@ -18,4 +18,5 @@
     <string name="STR_MOBILE_HINT_REGISTER">Mobile</string>
     <string name="STR_PHONE_HINT_REGISTER">Phone</string>
     <string name="STR_PASS_HINT">Password</string>
+    <string name="STR_USER_LOGIN">User Login Options</string>
 </resources>

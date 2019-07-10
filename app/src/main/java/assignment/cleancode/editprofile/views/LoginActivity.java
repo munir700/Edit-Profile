@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
         if (firebaseUser == null) {
             viewModel.loginUser(this);
         } else if (firebaseUser != null) {
-            EditProfileActivity.open(this);
+            //EditProfileActivity.open(this);
             // Name, email address, and profile photo Url
             String name = firebaseUser.getDisplayName();
             String email = firebaseUser.getEmail();

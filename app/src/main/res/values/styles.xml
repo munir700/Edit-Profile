@@ -14,10 +14,12 @@
         <item name="android:layout_marginRight">@dimen/textinput_layout_input_margin</item>
     </style>
 
-    <style name="lable_text_appearance" parent="TextAppearance.AppCompat.Headline">
+    <style name="lable_text_appearance" parent="TextAppearance.Design.Hint">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/_12ssp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
 
     </style>
+
+
 </resources>

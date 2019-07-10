@@ -9,10 +9,11 @@ import androidx.databinding.ViewDataBinding;
 
 import assignment.cleancode.editprofile.R;
 import assignment.cleancode.editprofile.base.BaseActivity;
+import assignment.cleancode.editprofile.databinding.ActivityEditProfileBinding;
 import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
 import assignment.cleancode.editprofile.viewmodels.EditProfileViewModel;
 
-public class EditProfileActivity extends BaseActivity<EditProfileViewModel, ViewDataBinding> {
+public class EditProfileActivity extends BaseActivity<EditProfileViewModel, ActivityEditProfileBinding> {
 
     public static void open(Activity activity) {
         Intent intent = new Intent(activity, EditProfileActivity.class);
