@@ -12,4 +12,10 @@
     <string name="STR_MOBILE_REQUIRED">Mobile number is required</string>
     <string name="STR_ERROR_INVALID_PHONE">Phone number format invalid</string>
 
+
+    <string name="STR_NAME">Name</string>
+    <string name="EMAIL_STR">Email</string>
+    <string name="STR_MOBILE_HINT_REGISTER">Mobile</string>
+    <string name="STR_PHONE_HINT_REGISTER">Phone</string>
+    <string name="STR_PASS_HINT">Password</string>
 </resources>

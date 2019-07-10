@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.Gravity" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <ScrollView
+
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_textinput"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_setting_name_top_margin"
+                    app:hintTextAppearance="@style/lable_text_appearance"
+                    app:layout_constraintBottom_toTopOf="@+id/email_textinput"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.95"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_bg_selector"
+                        android:hint="@string/STR_NAME"
+                        android:inputType="textPersonName"
+                        android:minHeight="@dimen/_30sdp"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_12" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_textinput"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_setting_text_input_layout_top_margin"
+                    app:hintTextAppearance="@style/lable_text_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name_textinput">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_bg_selector"
+                        android:enabled="false"
+                        android:hint="@string/EMAIL_STR"
+                        android:inputType="textEmailAddress"
+                        android:minHeight="@dimen/_30sdp"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingTop="@dimen/profile_setting_edit_text_top_padding"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_12" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password_textinput"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_setting_text_input_layout_top_margin"
+                    app:hintTextAppearance="@style/lable_text_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/email_textinput"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_bg_selector"
+                        android:hint="@string/STR_PASS_HINT"
+                        android:inputType="textPassword"
+                        android:minHeight="@dimen/_30sdp"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingTop="@dimen/profile_setting_edit_text_top_padding"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:textSize="@dimen/text_size_12" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/mobile_textinput"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_setting_text_input_layout_top_margin"
+                    app:hintTextAppearance="@style/lable_text_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/password_textinput">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mobile_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_bg_selector"
+                        android:hint="@string/STR_MOBILE_HINT_REGISTER"
+                        android:inputType="phone"
+                        android:minHeight="@dimen/_30sdp"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingTop="@dimen/profile_setting_edit_text_top_padding"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_12" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_textinput"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_setting_text_input_layout_top_margin"
+                    app:hintTextAppearance="@style/lable_text_appearance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mobile_textinput">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edt_bg_selector"
+                        android:hint="@string/STR_PHONE_HINT_REGISTER"
+                        android:inputType="phone"
+                        android:minHeight="@dimen/_30sdp"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingTop="@dimen/profile_setting_edit_text_top_padding"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_12" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

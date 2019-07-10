@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import assignment.cleancode.editprofile.di.ViewModelFactory;
 import assignment.cleancode.editprofile.di.ViewModelKey;
+import assignment.cleancode.editprofile.models.validationmodels.EditProfileModel;
+import assignment.cleancode.editprofile.viewmodels.EditProfileViewModel;
 import assignment.cleancode.editprofile.viewmodels.LoginViewModel;
 import dagger.Binds;
 import dagger.Module;
@@ -20,8 +22,13 @@ public abstract class ViewModelModule {
 
     @Binds
     @IntoMap
+    @ViewModelKey(EditProfileViewModel.class)
+    abstract ViewModel bindEditProfileViewModel(EditProfileViewModel editProfileViewModel);
+
+    @Binds
+    @IntoMap
     @ViewModelKey(LoginViewModel.class)
-    abstract ViewModel bindMovieDetailViewModel(LoginViewModel editProfileViewModel);
+    abstract ViewModel bindLoginViewModel(LoginViewModel loginViewModel);
 
 
     @Binds

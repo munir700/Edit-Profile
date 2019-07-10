@@ -41,6 +41,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
         if (firebaseUser == null) {
             viewModel.loginUser(this);
         } else if (firebaseUser != null) {
+            EditProfileActivity.open(this);
             // Name, email address, and profile photo Url
             String name = firebaseUser.getDisplayName();
             String email = firebaseUser.getEmail();
@@ -67,6 +68,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
+                EditProfileActivity.open(this);
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 // ...
             } else {
@@ -77,4 +79,6 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
             }
         }
     }
+
+
 }

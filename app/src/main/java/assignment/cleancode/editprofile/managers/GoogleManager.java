@@ -36,7 +36,7 @@ public class GoogleManager {
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.GoogleBuilder().build());
 
-// Create and launch sign-in intent
+        // Create and launch sign-in intent
         activity.startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()

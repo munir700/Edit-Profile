@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import javax.inject.Inject;
 
+import assignment.cleancode.editprofile.R;
 import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
 import assignment.cleancode.editprofile.interfaces.ViewModelCallBackObserver;
 import dagger.android.AndroidInjection;
@@ -65,10 +66,6 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
 
     @Override
     protected void onDestroy() {
@@ -103,5 +100,18 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
     public void onApiRequestFailed(String message) {
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (isFinishing()) {
+            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+        }
+    }
 
 }
