@@ -3,6 +3,7 @@ package assignment.cleancode.editprofile.views;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +32,22 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
     @Override
     public void onObserve(ViewModelEventsEnum event, Object eventMessage) {
         super.onObserve(event, eventMessage);
+        switch (event) {
+            case NO_INTERNET_CONNECTION:
+                showAlert(binding.parentLogin, getString(R.string.STR_NO_INTERNET_CONNECTIVITY));
+                break;
+            case ON_API_REQUEST_FAILURE:
+                showAlert(binding.parentLogin, eventMessage.toString());
+                break;
+            case ON_API_CALL_START:
+                showProgress();
+                break;
+            case ON_API_CALL_STOP:
+                hideProgress();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -59,6 +76,19 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
 
     }
 
+    public void attemptLogin(View view){
+
+    }
+
+    public void loginWithGoogle(View view){
+        FirebaseUser firebaseUser = viewModel.getFirebaseUser();
+        if (firebaseUser == null) {
+            viewModel.loginUser(this);
+        } else if (firebaseUser != null) {
+            EditProfileActivity.open(this);
+        }
+
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

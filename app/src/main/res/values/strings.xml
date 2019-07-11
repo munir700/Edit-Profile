@@ -2,6 +2,8 @@
     <string name="app_name">Edit Profile</string>
 
 
+    <string name="STR_NO_INTERNET_CONNECTIVITY">It looks like you are not connected to the internet. Please check your internet settings and try again.</string>
+
     <string name="STR_NAME_REQUIRED">Name is required</string>
     <string name="STR_VALID_EMAIL_REQUIRED">Valid email is required</string>
     <string name="ERROR_INVALID_EMAIL_REGISTER">Email address invalid</string>
@@ -23,4 +25,7 @@
     <string name="STR_SIGNIN">Sign In </string>
     <string name="STR_OR">OR</string>
     <string name="STR_LOGIN_GOOGLE">Login with Google</string>
+    <string name="STR_UPDATE_USER_PROFILE">Update User Profile</string>
+    <string name="STR_UPDATE_PASSWORD">Update Password</string>
+    <string name="STR_UPDATE_EMAIL">Update Email</string>
 </resources>

@@ -61,10 +61,16 @@ public class EditProfileModel extends BaseValidationModel implements Parcelable 
     public void validate() {
         super.validate();
         validateNameErrorString();
-        validateEmailErrorString();
+
+    }
+
+    public void validatePassword() {
         validatePasswordErrorString();
         validateConfirmPasswordErrorString();
-        validatePhoneNumberErrorString();
+    }
+
+    public void validateEmail() {
+        validateEmailErrorString();
     }
 
     public EditProfileModel(Context context) {

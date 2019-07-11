@@ -20,6 +20,7 @@ import javax.inject.Inject;
 import assignment.cleancode.editprofile.R;
 import assignment.cleancode.editprofile.enums.ViewModelEventsEnum;
 import assignment.cleancode.editprofile.interfaces.ViewModelCallBackObserver;
+import assignment.cleancode.editprofile.utils.AppAlerts;
 import dagger.android.AndroidInjection;
 
 /**
@@ -94,11 +95,6 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
         }
     }
 
-    /**
-     * on Server Request Failed.
-     */
-    public void onApiRequestFailed(String message) {
-    }
 
     @Override
     protected void onResume() {
@@ -112,6 +108,10 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
         if (isFinishing()) {
             overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
         }
+    }
+
+    public void showAlert(View view , String message) {
+        AppAlerts.showSnack(view, getBaseContext(), message);
     }
 
 }

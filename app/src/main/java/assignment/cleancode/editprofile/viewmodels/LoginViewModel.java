@@ -21,7 +21,7 @@ public class LoginViewModel extends BaseViewModel {
     }
 
     public FirebaseUser getFirebaseUser() {
-        return FirebaseAuth.getInstance().getCurrentUser();
+        return googleManager.getFirebaseUser();
     }
 
     public void loginUser(Activity activity) {
@@ -29,5 +29,14 @@ public class LoginViewModel extends BaseViewModel {
 
     }
 
+    public void loginUserUsernamePassword(Activity activity, String username, String password) {
+        googleManager.signinEmailPassword(activity, this, username, password);
+
+    }
+
+    public void signupWithGoogle(Activity activity, String username, String password) {
+        googleManager.signupWithGoogle(activity, this, username, password);
+
+    }
 
 }
