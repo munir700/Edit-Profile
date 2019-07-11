@@ -49,13 +49,13 @@ public abstract class BaseActivity<VM extends BaseViewModel, DB extends ViewData
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel());
-        // viewModel.addObserver(this);
+        viewModel.addObserver(this);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, getLayoutRes());
         if (binding != null) {
             //TODO use layout in xml.It is recommended for approact.
             //otherwise the binding object is going to be null and non of the views are accessable.
-            // progressBar = binding.getRoot().findViewById(R.id.progressBar);
+            progressBar = binding.getRoot().findViewById(R.id.progressBar);
             if (progressBar != null) {
                 progressBar.setVisibility(View.GONE);
             }

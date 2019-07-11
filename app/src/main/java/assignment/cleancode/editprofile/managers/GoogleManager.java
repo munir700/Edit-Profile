@@ -86,7 +86,6 @@ public class GoogleManager {
 
         if (networkUtils.isConnectedToInternet()) {
 
-
             final FirebaseUser user = getFirebaseUser();
 
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()

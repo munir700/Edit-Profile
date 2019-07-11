@@ -28,4 +28,6 @@
     <string name="STR_UPDATE_USER_PROFILE">Update User Profile</string>
     <string name="STR_UPDATE_PASSWORD">Update Password</string>
     <string name="STR_UPDATE_EMAIL">Update Email</string>
+
+    <string name="STR_UPDATE_PROFILE">UPDATE PROFILE</string>
 </resources>

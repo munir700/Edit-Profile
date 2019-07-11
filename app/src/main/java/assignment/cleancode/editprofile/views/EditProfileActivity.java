@@ -116,4 +116,14 @@ public class EditProfileActivity extends BaseActivity<EditProfileViewModel, Acti
             });
         }*/
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        super.onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+
+    public void onBackButtonPressed(View view) {
+        onSupportNavigateUp();
+    }
 }

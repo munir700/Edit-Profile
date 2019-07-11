@@ -23,8 +23,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        manifestPlaceholders = [packagename: "assignment.cleancode.editprofile", fabricApiKey: "53ee44f090b5463b12170bfb0b5cb102a0d5ebb8"]
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [packagename: "assignment.cleancode.editprofile", fabricApiKey: "075ff7d2ea0e048b7243e6d8da3a432e08880c20"]
 
     }
     buildTypes {

@@ -38,4 +38,14 @@
         <item name="android:gravity">center</item>
     </style>
 
+
+    <style name="EditTextHintTheme">
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="colorControlNormal">@color/border_color</item>
+        <item name="android:editTextColor">@color/text_color</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
+
 </resources>
