@@ -44,5 +44,12 @@ public class EditProfileViewModel extends BaseViewModel {
         return googleManager.updateUserProfile(this, name, imageUrl);
     }
 
+    public MutableLiveData<FirebaseUser> updatePassword(String password) {
+        return googleManager.updatePassword(this, password);
+    }
+
+    public MutableLiveData<FirebaseUser> updateEmail(String email) {
+        return googleManager.updateEmail(this, email);
+    }
 
 }

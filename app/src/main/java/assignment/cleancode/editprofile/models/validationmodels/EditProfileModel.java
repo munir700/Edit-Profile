@@ -62,6 +62,7 @@ public class EditProfileModel extends BaseValidationModel implements Parcelable 
         super.validate();
         validateNameErrorString();
 
+
     }
 
     public void validatePassword() {

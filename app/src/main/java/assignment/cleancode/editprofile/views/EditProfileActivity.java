@@ -47,9 +47,11 @@ public class EditProfileActivity extends BaseActivity<EditProfileViewModel, Acti
                 break;
             case ON_API_CALL_START:
                 showProgress();
+                setEnableDisable(false);
                 break;
             case ON_API_CALL_STOP:
                 hideProgress();
+                setEnableDisable(true);
                 break;
             default:
                 break;
@@ -73,11 +75,11 @@ public class EditProfileActivity extends BaseActivity<EditProfileViewModel, Acti
         binding.executePendingBindings();
         isFormValid = editProfile.isValid();
         if (isFormValid) {
-            binding.updatePasswordBtn.setEnabled(false);
-            viewModel.updateProfile(editProfile.getName(), editProfile.getName()).observe(this, new Observer<FirebaseUser>() {
+            setEnableDisable(false);
+            viewModel.updateProfile(editProfile.getName(), editProfile.getEmail()).observe(this, new Observer<FirebaseUser>() {
                 @Override
                 public void onChanged(@Nullable FirebaseUser firebaseUser) {
-
+                    showAlert(binding.parentProfile, getString(R.string.STR_UPDATE_USER_PROFILE_SUCCESS));
                 }
             });
         }
@@ -89,15 +91,15 @@ public class EditProfileActivity extends BaseActivity<EditProfileViewModel, Acti
         editProfile.validatePassword();
         binding.executePendingBindings();
         isFormValid = editProfile.isValid();
-        /*if (isFormValid) {
-            binding.updatePasswordBtn.setEnabled(false);
-            viewModel.updateProfile(editProfile.getName(), editProfile.getName()).observe(this, new Observer<FirebaseUser>() {
+        if (isFormValid) {
+            setEnableDisable(false);
+            viewModel.updatePassword(editProfile.getPassword()).observe(this, new Observer<FirebaseUser>() {
                 @Override
                 public void onChanged(@Nullable FirebaseUser firebaseUser) {
-
+                    showAlert(binding.parentProfile, getString(R.string.STR_UPDATE_USER_PASSWORD_SUCCESS));
                 }
             });
-        }*/
+        }
     }
 
     public void attemptUpdateEmail(View view) {
@@ -106,15 +108,22 @@ public class EditProfileActivity extends BaseActivity<EditProfileViewModel, Acti
         editProfile.validateEmail();
         binding.executePendingBindings();
         isFormValid = viewModel.getUserInfo(this).isValid();
-       /* if (isFormValid) {
-            binding.updatePasswordBtn.setEnabled(false);
-            viewModel.updateProfile(editProfile.getName(), editProfile.getName()).observe(this, new Observer<FirebaseUser>() {
+        if (isFormValid) {
+            setEnableDisable(false);
+            viewModel.updateEmail(editProfile.getEmail()).observe(this, new Observer<FirebaseUser>() {
                 @Override
                 public void onChanged(@Nullable FirebaseUser firebaseUser) {
-
+                    showAlert(binding.parentProfile, getString(R.string.STR_UPDATE_USER_EMAIL_SUCCESS));
                 }
             });
-        }*/
+        }
+    }
+
+    private void setEnableDisable(boolean enable) {
+        binding.updateProfileBtn.setEnabled(enable);
+        binding.updateEmailBtn.setEnabled(enable);
+        binding.updatePasswordBtn.setEnabled(enable);
+
     }
 
     @Override

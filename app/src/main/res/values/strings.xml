@@ -20,6 +20,7 @@
     <string name="STR_MOBILE_HINT_REGISTER">Mobile</string>
     <string name="STR_PHONE_HINT_REGISTER">Phone</string>
     <string name="STR_PASS_HINT">Password</string>
+    <string name="STR_CONFIRM_PASS_HINT">Confirm Password</string>
     <string name="STR_USER_LOGIN">User Login Options</string>
 
     <string name="STR_SIGNIN">Sign In </string>
@@ -30,4 +31,11 @@
     <string name="STR_UPDATE_EMAIL">Update Email</string>
 
     <string name="STR_UPDATE_PROFILE">UPDATE PROFILE</string>
+
+
+    <string name="STR_UPDATE_USER_PROFILE_SUCCESS">User Profile update successfully</string>
+    <string name="STR_UPDATE_USER_PASSWORD_SUCCESS">User Password update successfully</string>
+    <string name="STR_UPDATE_USER_EMAIL_SUCCESS">User Email update successfully</string>
+
+
 </resources>

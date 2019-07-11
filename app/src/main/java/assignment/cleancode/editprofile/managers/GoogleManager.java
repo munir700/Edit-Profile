@@ -79,8 +79,13 @@ public class GoogleManager {
 
     }
 
-
-    public MutableLiveData<FirebaseUser> updateUserProfile(final EditProfileViewModel viewModel, String name, String imageUrl) {
+    /***
+     * Update user profile
+     * @param viewModel
+     * @param name
+     * @return
+     */
+    public MutableLiveData<FirebaseUser> updateUserProfile(final EditProfileViewModel viewModel, final String name, final String imageUrl) {
 
         final MutableLiveData<FirebaseUser> userMutableLiveData = new MutableLiveData<>();
 
@@ -90,20 +95,16 @@ public class GoogleManager {
 
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                     .setDisplayName(name)
-                    .setPhotoUri(Uri.parse(imageUrl))
+                    //.setPhotoUri(Uri.parse(imageUrl))
                     //.setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
                     .build();
-
             user.updateProfile(profileUpdates)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                userMutableLiveData.postValue(user);
-                            }
+                            responseAction(viewModel, userMutableLiveData, task, user);
                         }
                     });
-
         } else {
             viewModel.notifyObserver(ViewModelEventsEnum.NO_INTERNET_CONNECTION, null);
         }
@@ -111,6 +112,13 @@ public class GoogleManager {
     }
 
 
+    /**
+     * Update User password
+     *
+     * @param viewModel
+     * @param password
+     * @return
+     */
     public MutableLiveData<FirebaseUser> updatePassword(final EditProfileViewModel viewModel, String password) {
 
         final MutableLiveData<FirebaseUser> userMutableLiveData = new MutableLiveData<>();
@@ -122,9 +130,7 @@ public class GoogleManager {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                userMutableLiveData.postValue(user);
-                            }
+                            responseAction(viewModel, userMutableLiveData, task, user);
                         }
                     });
         } else {
@@ -133,22 +139,38 @@ public class GoogleManager {
         return userMutableLiveData;
     }
 
-    public MutableLiveData<FirebaseUser> updateEmai(final EditProfileViewModel viewModel, String password) {
+
+    /**
+     * Update user email
+     *
+     * @param viewModel
+     * @param email
+     * @return
+     */
+    public MutableLiveData<FirebaseUser> updateEmail(final EditProfileViewModel viewModel, String email) {
         final MutableLiveData<FirebaseUser> userMutableLiveData = new MutableLiveData<>();
         if (networkUtils.isConnectedToInternet()) {
             final FirebaseUser user = getFirebaseUser();
-            user.updateEmail(password)
+            user.updateEmail(email)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                userMutableLiveData.postValue(user);
-                            }
+                            responseAction(viewModel, userMutableLiveData, task, user);
                         }
                     });
         } else {
             viewModel.notifyObserver(ViewModelEventsEnum.NO_INTERNET_CONNECTION, null);
         }
         return userMutableLiveData;
+    }
+
+    private void responseAction(EditProfileViewModel viewModel, MutableLiveData<FirebaseUser> userMutableLiveData, Task<Void> task, FirebaseUser user) {
+        if (task.isSuccessful()) {
+            viewModel.notifyObserver(ViewModelEventsEnum.ON_API_CALL_STOP, null);
+            userMutableLiveData.postValue(user);
+        } else {
+            String errorMessage = task.getException() != null ? task.getException().getMessage() : "Pelase handle Error as required";
+            viewModel.notifyObserver(ViewModelEventsEnum.ON_API_REQUEST_FAILURE, errorMessage);
+        }
     }
 }

@@ -41,9 +41,7 @@
                 android:layout_marginTop="@dimen/top_margin"
                 app:error="@{userInfo.nameErrorString}"
                 app:hintTextAppearance="@style/LableTextAppearance"
-                app:layout_constraintBottom_toTopOf="@+id/email_textinput"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.95"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -59,9 +57,36 @@
                     android:paddingRight="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_12sdp"
                     android:singleLine="true"
-                    android:text='@{userInfo.name}'
+                    android:text='@={userInfo.name}'
                     android:textSize="@dimen/text_size_12" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/update_profile_btn"
+                style="@style/RoundedButton"
+                android:layout_marginTop="@dimen/input_layout_top_margin"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp"
+                android:minWidth="@dimen/_200sdp"
+                android:onClick="attemptUpdateProfile"
+                android:paddingLeft="@dimen/_25sdp"
+                android:paddingRight="@dimen/_25sdp"
+                android:text="@string/STR_UPDATE_USER_PROFILE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_textinput" />
+
+            <View
+                android:id="@+id/profile_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@color/grey_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/update_profile_btn" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_textinput"
@@ -73,7 +98,7 @@
                 app:hintTextAppearance="@style/LableTextAppearance"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_textinput">
+                app:layout_constraintTop_toBottomOf="@+id/profile_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_et"
@@ -89,100 +114,10 @@
                     android:paddingRight="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_12sdp"
                     android:singleLine="true"
-                    android:text='@{userInfo.email}'
+                    android:text='@={userInfo.email}'
                     android:textSize="@dimen/text_size_12" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/password_textinput"
-                style="@style/TextInputLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/input_layout_top_margin"
-                app:error="@{userInfo.passwordErrorString}"
-                app:hintTextAppearance="@style/LableTextAppearance"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email_textinput"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edt_bg_selector"
-                    android:hint="@string/STR_PASS_HINT"
-                    android:inputType="textPassword"
-                    android:minHeight="@dimen/_30sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingTop="@dimen/edit_text_top_padding"
-                    android:paddingRight="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_12sdp"
-                    android:text='@{userInfo.password}'
-                    android:textSize="@dimen/text_size_12" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phone_textinput"
-                style="@style/TextInputLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/input_layout_top_margin"
-                app:error="@{userInfo.phoneNumberErrorString}"
-                app:hintTextAppearance="@style/LableTextAppearance"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/password_textinput">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phone_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edt_bg_selector"
-                    android:hint="@string/STR_PHONE_HINT_REGISTER"
-                    android:inputType="phone"
-                    android:minHeight="@dimen/_30sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingTop="@dimen/edit_text_top_padding"
-                    android:paddingRight="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_12sdp"
-                    android:singleLine="true"
-                    android:text='@{userInfo.phoneNumber}'
-                    android:textSize="@dimen/text_size_12" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/update_profile_btn"
-                style="@style/RoundedButton"
-                android:layout_marginTop="@dimen/input_layout_top_margin"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:elevation="@dimen/_2sdp"
-                android:minWidth="@dimen/_200sdp"
-                android:onClick="attemptUpdateProfile"
-                android:paddingLeft="@dimen/_25sdp"
-                android:paddingRight="@dimen/_25sdp"
-                android:text="@string/STR_UPDATE_USER_PROFILE"
-                app:layout_constraintBottom_toTopOf="@+id/update_password_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/guidelinebottom" />
-
-            <Button
-                android:id="@+id/update_password_btn"
-                style="@style/RoundedButton"
-                android:layout_marginTop="@dimen/input_layout_top_margin"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:elevation="@dimen/_2sdp"
-                android:minWidth="@dimen/_200sdp"
-                android:onClick="attemptUpdatePassword"
-                android:paddingLeft="@dimen/_25sdp"
-                android:paddingRight="@dimen/_25sdp"
-                android:text="@string/STR_UPDATE_PASSWORD"
-                app:layout_constraintBottom_toTopOf="@+id/update_email_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/update_profile_btn" />
 
             <Button
                 android:id="@+id/update_email_btn"
@@ -195,18 +130,98 @@
                 android:paddingLeft="@dimen/_25sdp"
                 android:paddingRight="@dimen/_25sdp"
                 android:text="@string/STR_UPDATE_EMAIL"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/update_password_btn" />
+                app:layout_constraintTop_toBottomOf="@+id/email_textinput" />
 
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelinebottom"
-                android:layout_width="wrap_content"
+            <View
+                android:id="@+id/email_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@color/grey_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/update_email_btn" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_textinput"
+                style="@style/TextInputLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent=".6" />
+                android:layout_marginTop="@dimen/input_layout_top_margin"
+                app:error="@{userInfo.passwordErrorString}"
+                app:hintTextAppearance="@style/LableTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_view"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edt_bg_selector"
+                    android:hint="@string/STR_PASS_HINT"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:minHeight="@dimen/_30sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingTop="@dimen/edit_text_top_padding"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_12sdp"
+                    android:text='@={userInfo.password}'
+                    android:textSize="@dimen/text_size_12" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirm_password_textinput"
+                style="@style/TextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/input_layout_top_margin"
+                app:error="@{userInfo.confirmPasswordErrorString}"
+                app:hintTextAppearance="@style/LableTextAppearance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_textinput"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirm_password_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edt_bg_selector"
+                    android:hint="@string/STR_CONFIRM_PASS_HINT"
+                    android:inputType="textPassword"
+                    android:minHeight="@dimen/_30sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingTop="@dimen/edit_text_top_padding"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_12sdp"
+                    android:text='@={userInfo.confirmPassword}'
+                    android:textSize="@dimen/text_size_12" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/update_password_btn"
+                style="@style/RoundedButton"
+                android:layout_marginTop="@dimen/input_layout_top_margin"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp"
+                android:minWidth="@dimen/_200sdp"
+                android:onClick="attemptUpdatePassword"
+                android:paddingLeft="@dimen/_25sdp"
+                android:paddingRight="@dimen/_25sdp"
+                android:text="@string/STR_UPDATE_PASSWORD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirm_password_textinput" />
+
 
             <include
                 layout="@layout/progressbar"
