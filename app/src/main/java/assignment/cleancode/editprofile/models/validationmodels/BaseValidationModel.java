@@ -2,7 +2,6 @@ package assignment.cleancode.editprofile.models.validationmodels;
 
 
 import androidx.databinding.BaseObservable;
-import androidx.room.Ignore;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,7 +15,7 @@ import java.util.Map;
 public class BaseValidationModel extends BaseObservable {
 
 
-    @Ignore
+
     protected HashMap<String,Boolean> validationMap = new HashMap<>();
 
     public void validate(){
