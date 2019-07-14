@@ -12,9 +12,14 @@ Required internet Connection to get data from API server
 Or Download Android apk build on real device which attached to Github, install downloaded apk and run application.
 
 Libraries used to develop this AssessmentTest 
+
 androidx 1.0.2 
+
 daggerVersion 2.19 
+
 daggerSupportVersion 2.41.1 
+
 viewModelVersion 2.0.0 
+
 retrofitVersion 2.4.0
 
