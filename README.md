@@ -4,9 +4,13 @@ Clean Architecture which have MVVM, ACC, Databinding, Dependency injection(Dagge
 Requirement Tools to build AssessmentTest
 
 Android Studio with Build tools 3.4.2
+
 Android OS supported device with minimium API level 19(Android OS version 4.2 KitKat)
+
 Required internet Connection to get data from API server
+
 Or Download Android apk build on real device which attached to Github, install downloaded apk and run application.
+
 Libraries used to develop this AssessmentTest 
 androidx 1.0.2 
 daggerVersion 2.19 
